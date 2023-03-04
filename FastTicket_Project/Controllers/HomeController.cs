@@ -6,7 +6,6 @@ namespace FastTicket_Project.Controllers
 {
     public class HomeController : Controller
     {
-        private string test {get; set;}
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
