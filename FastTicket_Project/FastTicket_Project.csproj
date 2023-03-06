@@ -6,4 +6,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Buyer\" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Views\Seller\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Buyer\" />
+    <Folder Include="Views\Seller\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
