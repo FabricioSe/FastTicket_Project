@@ -2,7 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <p class="customizedtext-yellow mb-0 ml-0">Sports</p>
+    <div class="m-auto cards d-flex">
+        @for(int i=0; i<4; i++)
+        {
+            <div class="card-custom m-4 text-center">
+                <img class="card-img-top card-img" src=https://i.cbc.ca/1.6218891.1634772576!/fileImage/httpImage/1205094796.jpg alt="Card Image" />
+                <p class="card-text text-white mt-2">Hockey Games</p>
+            </div>
+        }
+    </div>
 </div>
+

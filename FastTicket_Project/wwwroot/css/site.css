@@ -16,3 +16,38 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.customizedtext-white {
+    color: white;
+}
+
+.customizedtext-yellow {
+    color: #FFD12F;
+}
+
+.bg-customized-gray {
+    background-color: #52524B;
+}
+
+.bg-customized-dark {
+    background-color: #2E2E2E;
+}
+
+.card-custom {
+    min-width: 18rem;
+    display: inline-block;
+    max-height: 25rem;
+    justify-content: space-between;
+}
+
+.card-img {
+    max-width: 18rem;
+    max-height: 10rem;
+}
+
+.cards {
+    display: table;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
