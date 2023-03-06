@@ -1,17 +1,54 @@
-﻿@{
+﻿@model IEnumerable<FastTicket_Project.DataSource.Data>
+@{
     ViewData["Title"] = "Home Page";
 }
 
+@*<div class="container">
+        <h5 class="customizedtext-yellow row-full" style="background-color:darkred;">Sports</h5>
+        <div class="m-auto cards d-flex">
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="card-custom m-4 text-center">
+                    <img class="card-img-top card-img" src=https://i.cbc.ca/1.6218891.1634772576!/fileImage/httpImage/1205094796.jpg alt="Card Image" />
+                    <p class="card-text text-white mt-2">Hockey Games</p>
+                </div>
+            }
+        </div>
+    </div>*@
+
 <div class="container">
-    <h5 class="customizedtext-yellow row-full" style="background-color:darkred;">Sports</h5>
-    <div class="m-auto cards d-flex">
-        @for(int i=0; i<4; i++)
+    <h5 class="customizedtext-yellow">Sports</h5>
+    <div class="row">
+        @for (int i = 0; i < 4; i++)
         {
-            <div class="card-custom m-4 text-center">
-                <img class="card-img-top card-img" src=https://i.cbc.ca/1.6218891.1634772576!/fileImage/httpImage/1205094796.jpg alt="Card Image" />
-                <p class="card-text text-white mt-2">Hockey Games</p>
+            <div class="col-sm-6 col-md-3">
+                <div class="card-custom">
+                    <div class="card-body text-center">
+                        <img class="card-img-top card-img" src=https://i.cbc.ca/1.6218891.1634772576!/fileImage/httpImage/1205094796.jpg alt="Card Image">
+                        <p class="card-text text-white mt-2">Hockey Games</p>
+                    </div>
+                </div>
             </div>
         }
     </div>
 </div>
 
+@*<div class="m-auto cards">
+    @for (int i = 0; i <= @Model.myData.myListCat.count; i++)
+    {
+        <div class="card card-custom m-4">
+            <img class="card-img-top card-img" src=@Model.myData.myListCat[i].categoryImgs alt="Card image cap" />
+            <div class="card-body">
+                <p class="card-text"><i class="bi bi-person-video2"></i> @Model.myData.myListCat[i].categoryNames</p>
+            </div>
+        </div>
+        if (i % 3 == 2)
+        {
+            <br />
+        }
+    }
+    @foreach(var item in Model)
+{
+            <h1>@item.catImages</h1>
+}
+</div>*@

@@ -1,4 +1,5 @@
-﻿using FastTicket_Project.Models;
+﻿using FastTicket_Project.DataSource;
+using FastTicket_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,6 +7,8 @@ namespace FastTicket_Project.Controllers
 {
     public class HomeController : Controller
     {
+        public Data dataSource = Data.GetInstance();
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -15,12 +18,7 @@ namespace FastTicket_Project.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            return View(dataSource);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

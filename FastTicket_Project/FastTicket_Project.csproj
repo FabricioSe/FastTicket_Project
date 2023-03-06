@@ -10,10 +10,12 @@
     <None Remove="Views\Buyer\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Views\Seller\" />
+    <None Remove="DataSource\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Buyer\" />
     <Folder Include="Views\Seller\" />
+    <Folder Include="DataSource\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
