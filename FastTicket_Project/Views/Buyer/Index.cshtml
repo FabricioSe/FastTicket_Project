@@ -1,11 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Buyer SignIn";
 }
-<body style="background-color: #2E2E2E ">
-    <div>
-        <img src="fasttickettag.png"/>
-    </div>
-    <div class="card container-fluid d-flex justify-content-center" style="width:700px;">
+<body style="background-color: #2E2E2E">
+    <div class="card container-fluid" style="width:700px;">
         <div class="card-body">
             <div class="row">
                 <div class="form-group col-md-6">
@@ -26,13 +23,11 @@
                     <label for="pwd" class="form-label">Password</label>
                     <input type="password" class="form-control bg-warning" id="pwd" name="pswd">
                 </div>
-                <a href="#" class="text-warning">Forgot Passwors?</a>
-                <div class="row">
-                    <div class="form-group d-flex justify-content-end">
-                        <button type="submit" class="btn btn-dark btn-lg text-warning w-25 mt-4 mt-4">Sign in</button>
-                    </div>
+                <a href="../Buyer/ForgotPwd" class="text-warning">Forgot Passwors?</a>
+                <div class="form-group d-flex justify-content-end">
+                    <button type="submit" class="btn btn-dark btn-lg text-warning w-25 mt-4 mt-4">Sign in</button>
                 </div>
-                <p>New to Fast Ticket? <a href="#" class="text-warning">Sign Up</a></p>
+                <p>New to Fast Ticket? <a href="../Buyer/SignUp" class="text-warning">Sign Up</a></p>
             </form>    
         </div>
     </div>
