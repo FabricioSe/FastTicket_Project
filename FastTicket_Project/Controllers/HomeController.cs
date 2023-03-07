@@ -18,7 +18,7 @@ namespace FastTicket_Project.Controllers
 
         public IActionResult Index()
         {
-            return View(dataSource);
+            return View(dataSource.myListCat);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

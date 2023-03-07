@@ -1,7 +1,11 @@
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// ====================== Dependency Injection ========================
 
 var app = builder.Build();
 
