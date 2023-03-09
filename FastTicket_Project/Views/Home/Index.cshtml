@@ -5,16 +5,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="conainer">
+<div class="container-xxl">
     @foreach (var item in Model)
     {
         <h5 class="customizedtext-yellow">@item.Name</h5>
         <div class="row">
             @for (int i = 0; i < item.categoryNames.Count; i++)
             {
-                <div class="col-sm-6 col-md-3">
+                <div class="col-sm-6  col-md-3">
                     <div class="card-body text-center">
-                        <img class="card-img-top card-img" src=@item.categoryImgs[i] alt="Card image cap" />
+                        <img class="card-img-top" src=@item.categoryImgs[i] alt="Card image cap" />
                         <p class="card-text text-white mt-2">@item.categoryNames[i]</p>
                     </div>
                 </div>
