@@ -88,10 +88,10 @@ ul nav-tabs {
     background-color: white;
 }
 
-.nav-link {
-    font-weight: bold !important;
+.custom-nav .nav-link {
+    font-weight: bold;
     color: gray;
-    font-size: x-large !important;
+    font-size: x-large;
 }
 
 .nav-link.active {
