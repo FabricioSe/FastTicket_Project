@@ -1,4 +1,7 @@
 ﻿@using FastTicket_Project.DataSource;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,24 +45,7 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Other</a>
                         </li>
                     </ul>
-                    @if (Data.buyerLogged != null)
-                    {
-                        <ul class="navbar-nav text-md-end">
-                            <li class="nav-item mx-auto">
-                                <div class="input-group">
-                                    <span class="input-group-text"><img src="" alt="" width="30" height="24"></span>
-                                    <input type="text" class="form-control" value="Hello @Data.buyerLogged.Email" readonly>
-                                </div>
-                            </li>
-                        </ul>
-                    } else {
-                        <ul class="navbar-nav text-md-end">
-                            <li>
-                                <i class="bi bi-person-circle customizedtext-yellow"></i>
-                                <a class="customizedtext-white" asp-area="" asp-controller="Buyer" asp-action="Index">Sign In</a>
-                            </li>
-                        </ul>
-                    }
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
