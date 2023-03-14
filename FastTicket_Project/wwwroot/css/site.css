@@ -65,3 +65,35 @@ body {
     height: 70px;
     padding: 0 20px;
 }
+
+nav div div ul li a:hover {
+    color: #FFD12F;
+    text-decoration: none;
+}
+
+.nav-tabs {
+    border-bottom: none !important;
+}
+
+.nav-card {
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+ul nav-tabs {
+    align-items: center;
+}
+
+.nav-tabs .nav-link {
+    background-color: white;
+}
+
+.nav-link {
+    font-weight: bold !important;
+    color: gray;
+    font-size: x-large !important;
+}
+
+.nav-link.active {
+    color: black !important;
+}
