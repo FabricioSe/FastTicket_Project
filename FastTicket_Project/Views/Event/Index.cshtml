@@ -1,0 +1,45 @@
+﻿@using FastTicket_Project.Models.Entities
+@model IEnumerable<Event>
+
+@{
+    ViewData["Title"] = "Event Index";
+}
+
+<div class="container text-light">
+    <table class="table text-light">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Street Number</th>
+                <th scope="col">Street Name</th>
+                <th scope="col">Postal Code</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Time</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Modified At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Event e in Model)
+            {
+                <tr>
+                    <th scope="row">@e.ID</th>
+                    <td>@e.Name</td>
+                    <td>@e.Description</td>
+                    <td>@e.StreetNumber</td>
+                    <td>@e.StreetName</td>
+                    <td>@e.PostalCode</td>
+                    <td>@e.City</td>
+                    <td>@e.Country</td>
+                    <td>@e.Time</td>
+                    <td>@e.CreatedAt</td>
+                    <td>@e.ModifiedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

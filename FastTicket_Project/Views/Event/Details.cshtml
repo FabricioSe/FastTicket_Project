@@ -1,0 +1,42 @@
+﻿@using FastTicket_Project.Models.Entities
+@model Event
+
+@{
+    ViewData["Title"] = "Event Index";
+}
+
+<div class="container text-light">
+    @Html.LabelFor(ev => ev.Name)
+    @Html.ValueFor(ev => ev.Name)
+    <br />
+    @Html.LabelFor(ev => ev.Description)
+    @Html.ValueFor(ev => ev.Description)
+    <br />
+    @Html.LabelFor(ev => ev.StreetNumber)
+    @Html.ValueFor(ev => ev.StreetNumber)
+    <br />
+    @Html.LabelFor(ev => ev.StreetName)
+    @Html.ValueFor(ev => ev.StreetName)
+    <br />
+    @Html.LabelFor(ev => ev.PostalCode)
+    @Html.ValueFor(ev => ev.PostalCode)
+    <br />
+    @Html.LabelFor(ev => ev.City)
+    @Html.ValueFor(ev => ev.City)
+    <br />
+    @Html.LabelFor(ev => ev.Country)
+    @Html.ValueFor(ev => ev.Country)
+    <br />
+    @Html.LabelFor(ev => ev.Time)
+    @Html.ValueFor(ev => ev.Time)
+    <br />
+    @Html.LabelFor(ev => ev.Category)
+    @Html.ValueFor(ev => ev.Category)
+    <br />
+    @Html.LabelFor(ev => ev.CreatedAt)
+    @Html.ValueFor(ev => ev.CreatedAt)
+    <br />
+    @Html.LabelFor(ev => ev.ModifiedAt)
+    @Html.ValueFor(ev => ev.ModifiedAt)
+
+</div>

@@ -3,14 +3,17 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
-namespace FastTicket_Project.Models
+namespace FastTicket_Project.Models.Entities
 {
-	public class Transaction : BaseEntity
+	public class Transaction
 	{
-		[Key]
-		public int ID { get; set; }
+        [Key]
+        public int ID { get; set; }
 
-		public int? TicketID { get; set; }
+		[Required]
+        public DateTime CreatedAt { get; set; }
+
+        public int? TicketID { get; set; }
 
 		public string? BuyerID { get; set; } // user who bought the ticket
 

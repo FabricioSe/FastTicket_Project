@@ -1,5 +1,5 @@
 ﻿using System;
-namespace FastTicket_Project.Models
+namespace FastTicket_Project.Models.Entities
 {
 	public class Category
 	{

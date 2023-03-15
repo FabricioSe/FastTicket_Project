@@ -1,5 +1,6 @@
 ﻿using System;
 using FastTicket_Project.Models;
+using FastTicket_Project.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

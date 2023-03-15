@@ -15,6 +15,10 @@
     <None Remove="Areas\" />
     <None Remove="Areas\Identity\" />
     <None Remove="Areas\Identity\Pages\" />
+    <None Remove="Models\Entities\" />
+    <None Remove="Models\DataTransferModels\" />
+    <None Remove="Models\DataTransferModels\Event\" />
+    <None Remove="Views\Event\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Buyer\" />
@@ -23,6 +27,10 @@
     <Folder Include="Areas\" />
     <Folder Include="Areas\Identity\" />
     <Folder Include="Areas\Identity\Pages\" />
+    <Folder Include="Models\Entities\" />
+    <Folder Include="Models\DataTransferModels\" />
+    <Folder Include="Models\DataTransferModels\Event\" />
+    <Folder Include="Views\Event\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.3" />

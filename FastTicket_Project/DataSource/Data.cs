@@ -1,5 +1,6 @@
 ﻿using System;
 using FastTicket_Project.Models;
+using FastTicket_Project.Models.Entities;
 
 namespace FastTicket_Project.DataSource
 {
@@ -7,7 +8,7 @@ namespace FastTicket_Project.DataSource
 	{
 		static Data instance;
 
-		public List<Category> myListCat = new List<Models.Category>();
+		public List<Category> myListCat = new List<Category>();
 
         public List<string> catNamesSports = new List<string> { "Hockey Games", "Basketball", "Soccer", "UFC" };
         public List<string> catImagesSports = new List<string>();
