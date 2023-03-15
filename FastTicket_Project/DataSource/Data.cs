@@ -15,9 +15,6 @@ namespace FastTicket_Project.DataSource
         public List<string> catImagesConcets = new List<string>();
         public List<string> catNamesArt = new List<string> { "Movies", "Wizards and Jedi", "Live Art & Synths", "Kink Art 4" };
         public List<string> catImagesArt = new List<string>();
-        public static Buyer buyerLogged { get; set; }
-
-        public List<Buyer> myBuyers = new List<Buyer>();
 
         public Data()
 		{
@@ -40,7 +37,6 @@ namespace FastTicket_Project.DataSource
             myListCat.Add(new Category("Concerts", catNamesConcerts, catImagesConcets));
             myListCat.Add(new Category("Arts&Theatre", catNamesArt, catImagesArt));
 
-            myBuyers.Add(new Buyer("david@msn.com", "123"));
         }
 
 		public static Data GetInstance()
@@ -51,11 +47,6 @@ namespace FastTicket_Project.DataSource
 			}
 			return instance;
 		}
-
-        public bool validatePassword(string pwd)
-        {
-            return (pwd == buyerLogged.Password) ? true : false;
-        }
 	}
 }
 

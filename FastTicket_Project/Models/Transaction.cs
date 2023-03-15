@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace FastTicket_Project.Models
 {
@@ -11,9 +12,9 @@ namespace FastTicket_Project.Models
 
 		public int? TicketID { get; set; }
 
-		public int? BuyerID { get; set; } // user who bought the ticket
+		public string? BuyerID { get; set; } // user who bought the ticket
 
-		public int? SellerID { get; set; } // user who sold the ticket
+		public string? SellerID { get; set; } // user who sold the ticket
 
 		[Required]
 		public string PaymentMethod { get; set; }
@@ -21,8 +22,8 @@ namespace FastTicket_Project.Models
 		[Required]
 		public decimal Price { get; set; }
 
-		public virtual User Buyer { get; set; }
-		public virtual User Seller { get; set; }
+		public virtual IdentityUser Buyer { get; set; }
+		public virtual IdentityUser Seller { get; set; }
 		public virtual Ticket Ticket { get; set; }
 
 		public Transaction()
