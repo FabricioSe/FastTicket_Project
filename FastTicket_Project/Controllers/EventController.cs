@@ -45,11 +45,18 @@ namespace FastTicket_Project.Controllers
         // GET: /events
         [HttpGet]
         [Route("/events")]
-        public IActionResult GetAll()
+        public IActionResult GetAll(EventCategory? category, int? year, int? month, int? day, string? country, string? city)
         {
-            var events = _context.Events.ToList();
+            var eventList = _context.Events
+                .Where(e => category != null ? e.Category == category : true)
+                .Where(e => year != null ? e.Time.Year == year : true)
+                .Where(e => month != null ? e.Time.Month == month : true)
+                .Where(e => day != null ? e.Time.Day == day : true)
+                .Where(e => country != null ? e.Country == country : true)
+                .Where(e => city != null ? e.City == city : true)
+                .ToList();
 
-            return View("Index", events);
+            return View("Index", eventList);
         }
 
         // GET: /event/create
