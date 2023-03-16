@@ -16,7 +16,7 @@ namespace FastTicket_Project.Models.Entities
         public DateTime ModifiedAt { get; set; }
 
         [Required]
-		public int UserID { get; set; } // owner of ticket
+		public string UserID { get; set; } // owner of ticket
 
 		[Required]
 		public decimal Price { get; set; }
@@ -24,11 +24,12 @@ namespace FastTicket_Project.Models.Entities
 		[Required]
 		public int EventID { get; set; }
 
+		[Required]
 		public bool OnSale { get; set; }
 
 		public Ticket()
 		{
-			OnSale = false;
+
 		}
 	}
 }

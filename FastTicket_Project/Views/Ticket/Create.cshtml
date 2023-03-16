@@ -1,0 +1,24 @@
+﻿@using FastTicket_Project.Models.DataTransferModels.Ticket
+@using FastTicket_Project.Models.Entities
+@model CreateTicketData
+
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<div class="container text-light">
+    <h1>Current event name: @ViewBag.EventName</h1>
+    <form method="post">
+        @Html.ValidationSummary()
+        <br />
+        @Html.LabelFor(t => t.Price)
+        @Html.EditorFor(t => t.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(t => t.Price)
+        <br />
+        @Html.LabelFor(t => t.OnSale)
+        @Html.EditorFor(t => t.OnSale, new { @class = "form-control" })
+        @Html.ValidationMessageFor(t => t.OnSale)
+        <br />
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>

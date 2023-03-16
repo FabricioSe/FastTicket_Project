@@ -19,6 +19,8 @@
     <None Remove="Models\DataTransferModels\" />
     <None Remove="Models\DataTransferModels\Event\" />
     <None Remove="Views\Event\" />
+    <None Remove="Views\Ticket\" />
+    <None Remove="Models\DataTransferModels\Ticket\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Buyer\" />
@@ -31,6 +33,8 @@
     <Folder Include="Models\DataTransferModels\" />
     <Folder Include="Models\DataTransferModels\Event\" />
     <Folder Include="Views\Event\" />
+    <Folder Include="Views\Ticket\" />
+    <Folder Include="Models\DataTransferModels\Ticket\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.3" />

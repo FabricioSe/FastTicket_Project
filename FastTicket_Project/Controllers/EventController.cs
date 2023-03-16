@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FastTicket_Project.Controllers
 {
-    [Route("event")]
+    [Route("events")]
     public class EventController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -25,7 +25,7 @@ namespace FastTicket_Project.Controllers
             _context = context;
         }
 
-        // GET: /event/{id}
+        // GET: /events/{id}
         [HttpGet]
         [Route("{id}")]
         public IActionResult GetOne(int id)
@@ -59,7 +59,7 @@ namespace FastTicket_Project.Controllers
             return View("Index", eventList);
         }
 
-        // GET: /event/create
+        // GET: /events/create
         [HttpGet]
         [Route("create")]
         [Authorize]
@@ -68,7 +68,7 @@ namespace FastTicket_Project.Controllers
             return View();
         }
 
-        // POST: /event/create
+        // POST: /events/create
         [HttpPost]
         [Route("create")]
         [Authorize]
@@ -98,7 +98,7 @@ namespace FastTicket_Project.Controllers
                     var res = await _context.SaveChangesAsync();
 
                     // TODO: Redirect to event page to see its infomation
-                    return Redirect("/event/" + eEntity.Entity.ID);
+                    return Redirect("/events/" + eEntity.Entity.ID);
                 }
                 catch (Exception ex)
                 {
@@ -111,9 +111,9 @@ namespace FastTicket_Project.Controllers
             }
         }
 
-        // GET: /event/{id}/update
+        // GET: /events/{id}/update
         [HttpGet]
-        [Route("/event/{id}/update")]
+        [Route("/events/{id}/update")]
         [Authorize]
         public IActionResult Update(int id)
         {
@@ -127,7 +127,7 @@ namespace FastTicket_Project.Controllers
 
         // POST: /event/{id}/update
         [HttpPost]
-        [Route("/event/{id}/update")]
+        [Route("/events/{id}/update")]
         [Authorize]
         public IActionResult Update(int id, UpdateEventData data)
         {
@@ -151,7 +151,7 @@ namespace FastTicket_Project.Controllers
             {
                 _context.SaveChanges();
 
-                return Redirect("/event/" + id);
+                return Redirect("/events/" + id);
             }
             catch (Exception e)
             {

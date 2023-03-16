@@ -1,0 +1,30 @@
+﻿@using FastTicket_Project.Models.Entities
+@model Ticket
+
+@{
+    ViewData["Title"] = "Ticket Index";
+}
+
+<div class="container text-light">
+    @Html.LabelFor(t => t.ID)
+    @Html.ValueFor(t => t.ID)
+    <br />
+    @Html.LabelFor(t => t.UserID)
+    @Html.ValueFor(t => t.UserID)
+    <br />
+    @Html.LabelFor(t => t.Price)
+    @Html.ValueFor(t => t.Price)
+    <br />
+    @Html.LabelFor(t => t.EventID)
+    @Html.ValueFor(t => t.EventID)
+    <br />
+    @Html.LabelFor(t => t.OnSale)
+    @Html.ValueFor(t => t.OnSale)
+    <br />
+    @Html.LabelFor(t => t.CreatedAt)
+    @Html.ValueFor(t => t.CreatedAt)
+    <br />
+    @Html.LabelFor(t => t.ModifiedAt)
+    @Html.ValueFor(t => t.ModifiedAt)
+    <br />
+</div>

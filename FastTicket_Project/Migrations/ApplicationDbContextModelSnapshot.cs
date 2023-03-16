@@ -22,7 +22,7 @@ namespace FastTicket_Project.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FastTicket_Project.Models.Event", b =>
+            modelBuilder.Entity("FastTicket_Project.Models.Entities.Event", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -75,7 +75,7 @@ namespace FastTicket_Project.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("FastTicket_Project.Models.Ticket", b =>
+            modelBuilder.Entity("FastTicket_Project.Models.Entities.Ticket", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -98,8 +98,9 @@ namespace FastTicket_Project.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
+                    b.Property<string>("UserID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -108,7 +109,7 @@ namespace FastTicket_Project.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("FastTicket_Project.Models.Transaction", b =>
+            modelBuilder.Entity("FastTicket_Project.Models.Entities.Transaction", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -348,16 +349,16 @@ namespace FastTicket_Project.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("FastTicket_Project.Models.Ticket", b =>
+            modelBuilder.Entity("FastTicket_Project.Models.Entities.Ticket", b =>
                 {
-                    b.HasOne("FastTicket_Project.Models.Event", null)
+                    b.HasOne("FastTicket_Project.Models.Entities.Event", null)
                         .WithMany("Tickets")
                         .HasForeignKey("EventID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FastTicket_Project.Models.Transaction", b =>
+            modelBuilder.Entity("FastTicket_Project.Models.Entities.Transaction", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Buyer")
                         .WithMany()
@@ -367,7 +368,7 @@ namespace FastTicket_Project.Migrations
                         .WithMany()
                         .HasForeignKey("SellerID");
 
-                    b.HasOne("FastTicket_Project.Models.Ticket", "Ticket")
+                    b.HasOne("FastTicket_Project.Models.Entities.Ticket", "Ticket")
                         .WithMany()
                         .HasForeignKey("TicketID");
 
@@ -429,7 +430,7 @@ namespace FastTicket_Project.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FastTicket_Project.Models.Event", b =>
+            modelBuilder.Entity("FastTicket_Project.Models.Entities.Event", b =>
                 {
                     b.Navigation("Tickets");
                 });
