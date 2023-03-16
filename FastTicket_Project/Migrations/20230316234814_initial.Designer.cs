@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FastTicket_Project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230316171226_initial")]
+    [Migration("20230316234814_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -48,6 +48,10 @@ namespace FastTicket_Project.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

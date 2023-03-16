@@ -42,6 +42,10 @@
         @Html.EditorFor(ev => ev.Time, new { @class = "form-control" })
         @Html.ValidationMessageFor(ev => ev.Time)
         <br />
+        @Html.LabelFor(ev => ev.ImageUrl)
+        @Html.EditorFor(ev => ev.ImageUrl, new { @class = "form-control" })
+        @Html.ValidationMessageFor(ev => ev.ImageUrl)
+        <br />
         @Html.LabelFor(ev => ev.Category)
         @Html.DropDownList("Category", Html.GetEnumSelectList(typeof(EventCategory)), "Select Category", new { @class = "form-control" })
         @Html.ValidationMessageFor(ev => ev.Category)

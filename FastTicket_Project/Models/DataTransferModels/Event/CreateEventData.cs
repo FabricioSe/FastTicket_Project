@@ -35,6 +35,9 @@ namespace FastTicket_Project.Models.DataTransferModels.Event
         public DateTime Time { get; set; }
 
         [Required]
+        public string ImageUrl { get; set; }
+
+        [Required]
         public EventCategory Category { get; set; }
 
         public CreateEventData()

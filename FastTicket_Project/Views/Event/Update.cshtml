@@ -46,6 +46,10 @@
         @Html.DropDownList("Category", Html.GetEnumSelectList(typeof(EventCategory)), "Select Category", new { @class = "form-control" })
         @Html.ValidationMessageFor(ev => ev.Category)
         <br />
+        @Html.LabelFor(ev => ev.ImageUrl)
+        @Html.EditorFor(ev => ev.ImageUrl, new { @class = "form-control" })
+        @Html.ValidationMessageFor(ev => ev.ImageUrl)
+        <br />
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>

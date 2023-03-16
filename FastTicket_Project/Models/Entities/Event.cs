@@ -39,6 +39,9 @@ namespace FastTicket_Project.Models.Entities
 		[Required]
 		public EventCategory Category { get; set; }
 
+		[Required]
+		public string ImageUrl { get; set; }
+
 		public virtual ICollection<Ticket> Tickets { get; set; }
 
 		public Event()

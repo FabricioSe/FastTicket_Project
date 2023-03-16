@@ -87,6 +87,7 @@ namespace FastTicket_Project.Controllers
                     City = data.City,
                     Country = data.Country,
                     Category = data.Category,
+                    ImageUrl = data.ImageUrl,
                     CreatedAt = DateTime.Now,
                     ModifiedAt = DateTime.Now
                 };
@@ -125,7 +126,7 @@ namespace FastTicket_Project.Controllers
             return View(ev);
         }
 
-        // POST: /event/{id}/update
+        // POST: /events/{id}/update
         [HttpPost]
         [Route("/events/{id}/update")]
         [Authorize]
@@ -144,6 +145,7 @@ namespace FastTicket_Project.Controllers
             ev.PostalCode = data.PostalCode;
             ev.City = data.City;
             ev.Country = data.Country;
+            ev.ImageUrl = data.ImageUrl;
             ev.Category = data.Category;
             ev.ModifiedAt = DateTime.Now;
 
