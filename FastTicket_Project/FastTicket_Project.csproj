@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Views\Buyer\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
-    <None Remove="Views\Seller\" />
     <None Remove="DataSource\" />
     <None Remove="Areas\" />
     <None Remove="Areas\Identity\" />
@@ -23,8 +21,6 @@
     <None Remove="Models\DataTransferModels\Ticket\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Buyer\" />
-    <Folder Include="Views\Seller\" />
     <Folder Include="DataSource\" />
     <Folder Include="Areas\" />
     <Folder Include="Areas\Identity\" />
