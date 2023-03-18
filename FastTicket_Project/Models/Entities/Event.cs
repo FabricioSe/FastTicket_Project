@@ -42,10 +42,14 @@ namespace FastTicket_Project.Models.Entities
 		[Required]
 		public string ImageUrl { get; set; }
 
+		[Required]
+		public int Clicks { get; set; }
+
 		public virtual ICollection<Ticket> Tickets { get; set; }
 
 		public Event()
 		{
+			Clicks = 0;
 		}
 	}
 }

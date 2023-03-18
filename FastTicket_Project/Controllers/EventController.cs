@@ -28,12 +28,23 @@ namespace FastTicket_Project.Controllers
         // GET: /events/{id}
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetOne(int id)
+        public async Task<IActionResult> GetOne(int id)
         {
             var ev = _context.Events.Find(id);
 
             if (ev != null)
             {
+                // increment number of clicks
+                ev.Clicks++;
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.InnerException.Message);
+                }
+
                 return View("Details", ev);
             }
             else
