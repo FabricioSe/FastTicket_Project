@@ -22,7 +22,7 @@ body {
 }
 
 .customizedtext-yellow {
-    color: #FFD12F;
+    color: #FFD12F !important;
 }
 
 .bg-customized-gray {
