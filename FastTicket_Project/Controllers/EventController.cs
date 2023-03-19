@@ -45,6 +45,9 @@ namespace FastTicket_Project.Controllers
                     return BadRequest(e.InnerException.Message);
                 }
 
+                var tickets = _context.Tickets.Where(t => t.EventID == id).ToList();
+                ViewBag.Tickets = tickets;
+
                 return View("Details", ev);
             }
             else

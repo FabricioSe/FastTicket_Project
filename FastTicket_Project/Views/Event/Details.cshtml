@@ -3,6 +3,9 @@
 
 @{
     ViewData["Title"] = "Event Index";
+
+    // here are the tickets for displayed event
+    var tickets = ViewBag.Tickets;
 }
 
 <div class="container text-light">
@@ -42,4 +45,5 @@
     @Html.LabelFor(ev => ev.ModifiedAt)
     @Html.ValueFor(ev => ev.ModifiedAt)
 
+    <h2>Number of tickets for this event: @tickets.Count</h2>
 </div>
