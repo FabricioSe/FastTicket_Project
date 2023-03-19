@@ -1,6 +1,9 @@
 using FastTicket_Project.DataSource;
+using FastTicket_Project.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using WebPWrecover.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +14,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     ));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
 builder.Services.AddControllersWithViews();
 
