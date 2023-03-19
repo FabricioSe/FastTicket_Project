@@ -97,3 +97,7 @@ ul nav-tabs {
 .nav-link.active {
     color: black !important;
 }
+
+.container.margin {
+    margin: 0px 0px 50px;
+}

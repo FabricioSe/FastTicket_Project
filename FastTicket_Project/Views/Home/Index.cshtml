@@ -1,27 +1,71 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    
+
     var newEvents = ViewBag.New;
     var popularEvents = ViewBag.Popular;
     var featuredEvents = ViewBag.Featured;
+    string[] arrayCat = ViewBag.arrayCat;
 }
 
-<div class="container">
-    @*This is how you display the name of the first event in the new category*@
-    @*newEvents[0].Name*@
-    @*@foreach (var item in Model)
-    {
-        <h5 class="customizedtext-yellow">@item.Name</h5>
-        <div class="row">
-            @for (int i = 0; i < item.categoryNames.Count; i++)
+<div class="container margin">
+    <!-- New Events-->
+    <a asp-controller="Event" asp-action="GetAll"><h5 class="customizedtext-yellow">@arrayCat[0]</h5></a>
+    <div class="row">
+        @if (newEvents.Count == 0)
+        {
+            <p class="card-text text-white mt-2 mb-2">No Events Available</p>
+        }
+        else
+        {
+            foreach (var item in newEvents)
             {
                 <div class="col-sm-6  col-md-3">
                     <div class="card-body text-center">
-                        <img class="card-img-top" src=@item.categoryImgs[i] alt="Card image cap" />
-                        <p class="card-text text-white mt-2">@item.categoryNames[i]</p>
+                        <a asp-controller="Event" asp-action="GetOne" asp-route-id=@item.ID><img class="card-img-top customizedtext-yellow" src=@item.ImageUrl alt="Card image cap" /></a>
+                        <a asp-controller="Event" asp-action="GetOne" asp-route-id=@item.ID><p class="card-text text-white mt-2">@item.Name</p></a>
                     </div>
                 </div>
             }
-        </div>
-    }*@
+        }
+    </div>
+    <!-- Popular Events-->
+    <a asp-controller="Event" asp-action="GetAll"><h5 class="customizedtext-yellow">@arrayCat[1]</h5></a>
+    <div class="row">
+        @if (popularEvents.Count == 0)
+        {
+            <p class="card-text text-white mt-2 mb-2">No Events Available</p>
+        }
+        else
+        {
+            foreach (var item in popularEvents)
+            {
+                <div class="col-sm-6  col-md-3">
+                    <div class="card-body text-center">
+                        <a asp-controller="Event" asp-action="GetOne" asp-route-id=@item.ID><img class="card-img-top customizedtext-yellow" src=@item.ImageUrl alt="Card image cap" /></a>
+                        <a asp-controller="Event" asp-action="GetOne" asp-route-id=@item.ID><p class="card-text text-white mt-2">@item.Name</p></a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <!-- Featured Events-->
+    <a asp-controller="Event" asp-action="GetAll"><h5 class="customizedtext-yellow">@arrayCat[2]</h5></a>
+    <div class="row">
+        @if (featuredEvents.Count == 0)
+        {
+            <p class="card-text text-white mt-2 mb-2">No Events Available</p>
+        }
+        else
+        {
+            foreach (var item in featuredEvents)
+            {
+                <div class="col-sm-6  col-md-3">
+                    <div class="card-body text-center">
+                        <a asp-controller="Event" asp-action="GetOne" asp-route-id=@item.ID><img class="card-img-top customizedtext-yellow" src=@item.ImageUrl alt="Card image cap" /></a>
+                        <a asp-controller="Event" asp-action="GetOne" asp-route-id=@item.ID><p class="card-text text-white mt-2">@item.Name</p></a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
 </div>
