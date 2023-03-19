@@ -1,5 +1,6 @@
 ﻿@page
 @model RegisterModel
+
 @{
     ViewData["Title"] = "Register";
 }
@@ -8,14 +9,16 @@
     <div class="card container-fluid" style="width: 700px; border-radius: 20px;">
         <div class="card-body">
 
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <a href="" class="btn btn-warning btn-lg d-grid">Buyer</a>
-                </div>
-                <div class="form-group col-md-6">
-                    <a href="" class="btn btn-outline-warning text-secondary btn-lg d-grid">Seller</a>
-                </div>
-            </div>
+            <nav class="nav-card bg-warning custom-nav">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item col-md-6">
+                        <a href="" class="nav-link active btn bg-warning border-0">Buyer</a>
+                    </li>
+                    <li class="nav-item col-md-6">
+                        <a href="" class="nav-link btn">Seller</a>
+                    </li>
+                </ul>
+            </nav>
             <br />
 
             <h1 class="display-7">@ViewData["Title"]</h1>
