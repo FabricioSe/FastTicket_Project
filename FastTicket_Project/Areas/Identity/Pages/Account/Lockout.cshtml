@@ -3,8 +3,13 @@
 @{
     ViewData["Title"] = "Locked out";
 }
-
-<header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">This account has been locked out, please try again later.</p>
-</header>
+<body style="background-color: #2E2E2E">
+    <div class="card container-fluid" style="width: 700px; border-radius: 20px;">
+        <div class="card-body">
+            <header>
+                <h1 class="text-danger">@ViewData["Title"]</h1>
+                <p class="text-danger">This account has been locked out, please try again later.</p>
+            </header>
+        </div>
+    </div>
+</body>

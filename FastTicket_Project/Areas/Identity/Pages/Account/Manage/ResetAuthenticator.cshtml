@@ -6,8 +6,9 @@
 }
 
 <partial name="_StatusMessage" for="StatusMessage" />
-<h3>@ViewData["Title"]</h3>
-<div class="alert alert-warning" role="alert">
+<h3 class="ms-3">@ViewData["Title"]</h3>
+<br />
+<div class="alert alert-warning ms-3" role="alert">
     <p>
         <span class="glyphicon glyphicon-warning-sign"></span>
         <strong>If you reset your authenticator key your authenticator app will not work until you reconfigure it.</strong>
@@ -17,8 +18,10 @@
         If you do not complete your authenticator app configuration you may lose access to your account.
     </p>
 </div>
-<div>
+<div class="ms-3">
     <form id="reset-authenticator-form" method="post">
-        <button id="reset-authenticator-button" class="btn btn-danger" type="submit">Reset authenticator key</button>
+        <div class="form-group d-flex justify-content-end">
+            <button id="reset-authenticator-button" class="w-auto btn btn-danger" type="submit">Reset authenticator key</button>
+        </div>
     </form>
 </div>

@@ -6,10 +6,11 @@
 }
 
 <partial name="_StatusMessage" for="StatusMessage" />
-<h3>@ViewData["Title"]</h3>
-<div>
+<h3 class="ms-3">@ViewData["Title"]</h3>
+<br />
+<div class="ms-3">
     <p>To use an authenticator app go through the following steps:</p>
-    <ol class="list">
+    <ol class="list ms-3">
         <li>
             <p>
                 Download a two-factor authenticator app like Microsoft Authenticator for
@@ -39,7 +40,9 @@
                             <label asp-for="Input.Code" class="control-label form-label">Verification Code</label>
                             <span asp-validation-for="Input.Code" class="text-danger"></span>
                         </div>
-                        <button type="submit" class="w-100 btn btn-lg btn-primary">Verify</button>
+                        <div class="form-group d-flex justify-content-end">
+                            <button type="submit" class="w-25 btn btn-dark text-warning">Verify</button>
+                        </div>
                         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                     </form>
                 </div>

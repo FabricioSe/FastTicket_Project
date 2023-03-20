@@ -6,9 +6,9 @@
 }
 
 <partial name="_StatusMessage" for="StatusMessage" />
-<h3>@ViewData["Title"]</h3>
-
-<div class="alert alert-warning" role="alert">
+<h3 class="ms-3">@ViewData["Title"]</h3>
+<br />
+<div class="alert alert-warning ms-3" role="alert">
     <p>
         <strong>This action only disables 2FA.</strong>
     </p>
@@ -18,8 +18,8 @@
     </p>
 </div>
 
-<div>
+<div class="form-group d-flex justify-content-end ms-3">
     <form method="post">
-        <button class="btn btn-danger" type="submit">Disable 2FA</button>
+        <button class="w-auto btn btn-danger" type="submit">Disable 2FA</button>
     </form>
 </div>

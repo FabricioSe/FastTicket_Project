@@ -6,8 +6,8 @@
 }
 
 <partial name="_StatusMessage" for="StatusMessage" />
-<h3>@ViewData["Title"]</h3>
-<div class="alert alert-warning" role="alert">
+<h3 class="ms-3">@ViewData["Title"]</h3>
+<div class="alert alert-warning ms-3" role="alert">
     <p>
         <span class="glyphicon glyphicon-warning-sign"></span>
         <strong>Put these codes in a safe place.</strong>
@@ -20,8 +20,10 @@
         used in an authenticator app you should <a asp-page="./ResetAuthenticator">reset your authenticator keys.</a>
     </p>
 </div>
-<div>
+<div class="ms-3">
     <form method="post">
-        <button class="btn btn-danger" type="submit">Generate Recovery Codes</button>
+        <div class="form-group d-flex justify-content-end">
+            <button class="w-auto btn btn-danger" type="submit">Generate Recovery Codes</button>
+        </div>
     </form>
 </div>
