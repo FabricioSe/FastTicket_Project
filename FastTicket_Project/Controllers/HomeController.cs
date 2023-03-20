@@ -23,12 +23,10 @@ namespace FastTicket_Project.Controllers
             var newEvents = _context.Events.OrderBy(e => e.CreatedAt).Take(4).ToList();
             var featuredEvents = _context.Events.Take(4).ToList();
             var popularEvents = _context.Events.OrderByDescending(e => e.Clicks).Take(4).ToList();
-            string[] arrayCat = new string[] {"New Events", "Featured Events", "Popular Events"};
-
+            
             ViewBag.New = newEvents;
             ViewBag.Featured = featuredEvents;
             ViewBag.Popular = popularEvents;
-            ViewBag.arrayCat = arrayCat;
 
             return View();
         }

@@ -4,7 +4,7 @@
     var newEvents = ViewBag.New;
     var popularEvents = ViewBag.Popular;
     var featuredEvents = ViewBag.Featured;
-    string[] arrayCat = ViewBag.arrayCat;
+    string[] arrayCat = new string[] { "New Events", "Featured Events", "Popular Events" };
 }
 
 <div class="container margin">
@@ -31,13 +31,13 @@
     <!-- Popular Events-->
     <a asp-controller="Event" asp-action="GetAll"><h5 class="customizedtext-yellow">@arrayCat[1]</h5></a>
     <div class="row">
-        @if (popularEvents.Count == 0)
+        @if (featuredEvents.Count == 0)
         {
             <p class="card-text text-white mt-2 mb-2">No Events Available</p>
         }
         else
         {
-            foreach (var item in popularEvents)
+            foreach (var item in featuredEvents)
             {
                 <div class="col-sm-6  col-md-3">
                     <div class="card-body text-center">
@@ -51,13 +51,13 @@
     <!-- Featured Events-->
     <a asp-controller="Event" asp-action="GetAll"><h5 class="customizedtext-yellow">@arrayCat[2]</h5></a>
     <div class="row">
-        @if (featuredEvents.Count == 0)
+        @if (popularEvents.Count == 0)
         {
             <p class="card-text text-white mt-2 mb-2">No Events Available</p>
         }
         else
         {
-            foreach (var item in featuredEvents)
+            foreach (var item in popularEvents)
             {
                 <div class="col-sm-6  col-md-3">
                     <div class="card-body text-center">
