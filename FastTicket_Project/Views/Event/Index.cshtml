@@ -3,71 +3,77 @@
 
 @{
     ViewData["Title"] = "Event Index";
+
+    var newEvents = ViewBag.categories;
+    var dropDownMenuText = ViewBag.dropDownMenuText;
 }
 
 <body style="background-color: #2E2E2E">
     <!-- Drop down menu -->
-    <div class="dropdown mb-4 mt-4">
-        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Select Your Category
+    <div class="dropdown mb-5 mt-4">
+        <button class="btn btn-warning dropdown-toggle" type="button" id="myButtonMenu" data-bs-toggle="dropdown" aria-expanded="false">
+            @dropDownMenuText
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Movie</a></li>
-            <li><a class="dropdown-item" href="#">Sports</a></li>
-            <li><a class="dropdown-item" href="#">Art</a></li>
+        <ul id="categoryDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            @foreach (var item in newEvents)
+            {
+                <li><a class="dropdown-item" asp-controller="Event" asp-route-category=@item>@item</a></li>
+            }
         </ul>
     </div>
 
-    <div class="container text-light">
-        <table class="table table-responsive table-warning table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Street Number</th>
-                    <th scope="col">Street Name</th>
-                    <th scope="col">Postal Code</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Country</th>
-                    <th scope="col">Time</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Image Url</th>
-                    <th scope="col">Created At</th>
-                    <th scope="col">Modified At</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Event e in Model)
-                {
+    @*<div class="container text-light">
+            <table class="table table-responsive table-warning table-striped">
+                <thead>
                     <tr>
-                        <th scope="row">@e.ID</th>
-                        <td>@e.Name</td>
-                        <td>@e.Description</td>
-                        <td>@e.StreetNumber</td>
-                        <td>@e.StreetName</td>
-                        <td>@e.PostalCode</td>
-                        <td>@e.City</td>
-                        <td>@e.Country</td>
-                        <td>@e.Time</td>
-                        <td>@e.Category</td>
-                        <td>@e.ImageUrl</td>
-                        <td>@e.CreatedAt</td>
-                        <td>@e.ModifiedAt</td>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Street Number</th>
+                        <th scope="col">Street Name</th>
+                        <th scope="col">Postal Code</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Image Url</th>
+                        <th scope="col">Created At</th>
+                        <th scope="col">Modified At</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (Event e in Model)
+                    {
+                        <tr>
+                            <th scope="row">@e.ID</th>
+                            <td>@e.Name</td>
+                            <td>@e.Description</td>
+                            <td>@e.StreetNumber</td>
+                            <td>@e.StreetName</td>
+                            <td>@e.PostalCode</td>
+                            <td>@e.City</td>
+                            <td>@e.Country</td>
+                            <td>@e.Time</td>
+                            <td>@e.Category</td>
+                            <td>@e.ImageUrl</td>
+                            <td>@e.CreatedAt</td>
+                            <td>@e.ModifiedAt</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 
-    </div>
-    <br />
+        </div>
+        <br />*@
 
     @foreach (Event e in Model)
     {
         <div class="card container-fluid" style="background-color: transparent; border-radius: 20px;">
             <div class="row no-gutters">
                 <div class="col-md-2">
-                    <img class="img-fluid customizedtext-yellow" src=@e.ImageUrl alt="Event Image Cap" />
+                    <div class="img-container-event">
+                        <img class="img-fluid customizedtext-yellow" src=@e.ImageUrl alt="Event Image Cap" />
+                    </div>
                 </div>
                 <div class="col-md-2" style="margin-left: 10px;">
                     <h4 class="card-title mt-2 mb-0" style="color: #FFF571;">@e.Time.ToString("MMM") @e.Time.Day</h4>

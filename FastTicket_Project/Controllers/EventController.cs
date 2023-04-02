@@ -70,6 +70,17 @@ namespace FastTicket_Project.Controllers
                 .Where(e => city != null ? e.City == city : true)
                 .ToList();
 
+            var eventCat = _context.Events.Select(e => e.Category).Distinct().ToList();
+            ViewBag.categories = eventCat;
+
+            if (category == null)
+            {
+                ViewBag.dropDownMenuText = "Select Your Category";
+            } else
+            {
+                ViewBag.dropDownMenuText = category;
+            }
+
             return View("Index", eventList);
         }
 
