@@ -8,42 +8,55 @@
     var tickets = ViewBag.Tickets;
 }
 
-<div class="container text-light">
-    @Html.LabelFor(ev => ev.Name)
-    @Html.ValueFor(ev => ev.Name)
-    <br />
-    @Html.LabelFor(ev => ev.Description)
-    @Html.ValueFor(ev => ev.Description)
-    <br />
-    @Html.LabelFor(ev => ev.StreetNumber)
-    @Html.ValueFor(ev => ev.StreetNumber)
-    <br />
-    @Html.LabelFor(ev => ev.StreetName)
-    @Html.ValueFor(ev => ev.StreetName)
-    <br />
-    @Html.LabelFor(ev => ev.PostalCode)
-    @Html.ValueFor(ev => ev.PostalCode)
-    <br />
-    @Html.LabelFor(ev => ev.City)
-    @Html.ValueFor(ev => ev.City)
-    <br />
-    @Html.LabelFor(ev => ev.Country)
-    @Html.ValueFor(ev => ev.Country)
-    <br />
-    @Html.LabelFor(ev => ev.Time)
-    @Html.ValueFor(ev => ev.Time)
-    <br />
-    @Html.LabelFor(ev => ev.Category)
-    @Html.ValueFor(ev => ev.Category)
-    <br />
-    @Html.LabelFor(ev => ev.ImageUrl)
-    @Html.ValueFor(ev => ev.ImageUrl)
-    <br />
-    @Html.LabelFor(ev => ev.CreatedAt)
-    @Html.ValueFor(ev => ev.CreatedAt)
-    <br />
-    @Html.LabelFor(ev => ev.ModifiedAt)
-    @Html.ValueFor(ev => ev.ModifiedAt)
-
-    <h2>Number of tickets for this event: @tickets.Count</h2>
-</div>
+<body style="background-color: #2E2E2E">
+    <div class="card container-fluid" style="width: 700px; border-radius: 20px;">
+        <div class="card-body">
+            <div class="container text-dark">
+                <h1 class="text-center mt-3">@ViewData["Title"]</h1>
+                <hr />
+                <div class="form-group m-3">
+                    @Html.LabelFor(ev => ev.Name, new { style = "margin-right: 120px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.Name)
+                    <br />
+                    @Html.LabelFor(ev => ev.Description, new { style = "margin-right: 52px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.Description)
+                    <br />
+                    @Html.LabelFor(ev => ev.StreetNumber, new { style = "margin-right: 22px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.StreetNumber)
+                    <br />
+                    @Html.LabelFor(ev => ev.StreetName, new { style = "margin-right: 49px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.StreetName)
+                    <br />
+                    @Html.LabelFor(ev => ev.PostalCode, new { style = "margin-right: 53px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.PostalCode)
+                    <br />
+                    @Html.LabelFor(ev => ev.City, new { style = "margin-right: 142px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.City)
+                    <br />
+                    @Html.LabelFor(ev => ev.Country, new { style = "margin-right: 95px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.Country)
+                    <br />
+                    @Html.LabelFor(ev => ev.Time, new { style = "margin-right: 132px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.Time)
+                    <br />
+                    @Html.LabelFor(ev => ev.Category, new { style = "margin-right: 82px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.Category)
+                    <br />
+                    @Html.LabelFor(ev => ev.ImageUrl, new { style = "color: #ffc107; font-size: 25px;" })
+                    <br />
+                    @Html.ValueFor(ev => ev.ImageUrl)
+                    <br />
+                    @Html.LabelFor(ev => ev.CreatedAt, new { style = "margin-right: 75px; margin-top: 10px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.CreatedAt)
+                    <br />
+                    @Html.LabelFor(ev => ev.ModifiedAt, new { style = "margin-right: 65px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(ev => ev.ModifiedAt)
+                </div>
+                <hr />
+                <br />
+                <h4 class="text-center bg-warning">Number of tickets for this event: @tickets.Count</h4>
+                <br />
+            </div>
+        </div>
+    </div>
+</body>

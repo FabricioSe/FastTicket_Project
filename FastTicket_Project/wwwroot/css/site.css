@@ -101,3 +101,38 @@ ul nav-tabs {
 .container.margin {
     margin: 0px 0px 50px;
 }
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    width: 100%;
+    background-color: #ffc107;
+}
+
+span.field-validation-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+select[name="Category"] {
+    background-color: #ffc107;
+}
+
+value-background {
+    background-color: yellow;
+    color: black;
+}
+
+
+
+
+
+

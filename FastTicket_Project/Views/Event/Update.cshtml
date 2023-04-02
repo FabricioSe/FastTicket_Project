@@ -5,51 +5,61 @@
 @{
     ViewData["Title"] = "Create Event";
 }
-
-<div class="container text-light">
-    <form method="post">
-        @Html.ValidationSummary()
-        <br />
-        @Html.LabelFor(ev => ev.Name)
-        @Html.EditorFor(ev => ev.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.Name)
-        <br />
-        @Html.LabelFor(ev => ev.Description)
-        @Html.EditorFor(ev => ev.Description, new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.Description)
-        <br />
-        @Html.LabelFor(ev => ev.StreetNumber)
-        @Html.EditorFor(ev => ev.StreetNumber, new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.StreetNumber)
-        <br />
-        @Html.LabelFor(ev => ev.StreetName)
-        @Html.EditorFor(ev => ev.StreetName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.StreetName)
-        <br />
-        @Html.LabelFor(ev => ev.PostalCode)
-        @Html.EditorFor(ev => ev.PostalCode, new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.PostalCode)
-        <br />
-        @Html.LabelFor(ev => ev.City)
-        @Html.EditorFor(ev => ev.City, new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.City)
-        <br />
-        @Html.LabelFor(ev => ev.Country)
-        @Html.EditorFor(ev => ev.Country, new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.Country)
-        <br />
-        @Html.LabelFor(ev => ev.Time)
-        @Html.EditorFor(ev => ev.Time, new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.Time)
-        <br />
-        @Html.LabelFor(ev => ev.Category)
-        @Html.DropDownList("Category", Html.GetEnumSelectList(typeof(EventCategory)), "Select Category", new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.Category)
-        <br />
-        @Html.LabelFor(ev => ev.ImageUrl)
-        @Html.EditorFor(ev => ev.ImageUrl, new { @class = "form-control" })
-        @Html.ValidationMessageFor(ev => ev.ImageUrl)
-        <br />
-        <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
-</div>
+<body style="background-color: #2E2E2E">
+    <div class="card container-fluid" style="width: 700px; border-radius: 20px;">
+        <div class="card-body">
+            <div class="container text-dark">
+                <h1 class="text-center mt-3">@ViewData["Title"]</h1>
+                <hr />
+                <form method="post">
+                    @Html.ValidationSummary()
+                    <br />
+                    @Html.LabelFor(ev => ev.Name)
+                    @Html.EditorFor(ev => ev.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.Name)
+                    <br />
+                    @Html.LabelFor(ev => ev.Description)
+                    @Html.EditorFor(ev => ev.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.Description)
+                    <br />
+                    @Html.LabelFor(ev => ev.StreetNumber)
+                    @Html.EditorFor(ev => ev.StreetNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.StreetNumber)
+                    <br />
+                    @Html.LabelFor(ev => ev.StreetName)
+                    @Html.EditorFor(ev => ev.StreetName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.StreetName)
+                    <br />
+                    @Html.LabelFor(ev => ev.PostalCode)
+                    @Html.EditorFor(ev => ev.PostalCode, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.PostalCode)
+                    <br />
+                    @Html.LabelFor(ev => ev.City)
+                    @Html.EditorFor(ev => ev.City, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.City)
+                    <br />
+                    @Html.LabelFor(ev => ev.Country)
+                    @Html.EditorFor(ev => ev.Country, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.Country)
+                    <br />
+                    @Html.LabelFor(ev => ev.Time, new { style = "margin-Top: 10px;" })
+                    @Html.EditorFor(ev => ev.Time, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.Time)
+                    <br />
+                    @Html.LabelFor(ev => ev.ImageUrl, new { style = "margin-Top: 20px;" })
+                    @Html.EditorFor(ev => ev.ImageUrl, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.ImageUrl)
+                    <br />
+                    @Html.LabelFor(ev => ev.Category)
+                    @Html.DropDownList("Category", Html.GetEnumSelectList(typeof(EventCategory)), "Select Category", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(ev => ev.Category)
+                    <br />
+                    <br />
+                    <div class="form-group d-flex justify-content-end">
+                        <button class="w-25 btn btn-dark text-warning" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
