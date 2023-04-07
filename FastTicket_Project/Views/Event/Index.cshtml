@@ -17,6 +17,8 @@
 
         <input class="form-control" type="text" placeholder="City" name="city" value="@ViewBag.city">
 
+        @Html.DropDownList("Sort", Html.GetEnumSelectList(typeof(EventSortingOptions)), "Select Sorting Option", new { @class = "form-control mb-4" })
+
         <button class="btn btn-primary" type="submit">Search</button>
 
     </form>

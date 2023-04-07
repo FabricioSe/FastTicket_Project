@@ -59,15 +59,30 @@ namespace FastTicket_Project.Controllers
         // GET: /events
         [HttpGet]
         [Route("/events")]
-        public IActionResult GetAll(String? search, EventCategory? category, string? country, string? city)
+        public IActionResult GetAll(EventSortingOptions? sort, String? search, EventCategory? category, string? country, string? city)
         {
-            var eventList = _context.Events
+            var events = _context.Events
                 .Where(e => category != null ? e.Category == category : true)
                 .Where(e => country != null ? e.Country == country : true)
                 .Where(e => city != null ? e.City == city : true)
-                .Where(e => search != null ? e.Name.ToLower().Contains(search.ToLower()) : true)
-                .ToList();
+                .Where(e => search != null ? e.Name.ToLower().Contains(search.ToLower()) : true);
 
+            if (sort == EventSortingOptions.New)
+            {
+                events = events.OrderBy(e => e.CreatedAt);
+            }
+            else if (sort == EventSortingOptions.Popular)
+            {
+                events = events.OrderByDescending(e => e.Clicks);
+            }
+            else if (sort == EventSortingOptions.Featured)
+            {
+                // here goes the logic to return featured events
+            }
+
+            var eventList = events.ToList();
+
+            ViewBag.sort = sort;
             ViewBag.search = search;
             ViewBag.category = category;
             ViewBag.country = country;
