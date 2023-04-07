@@ -3,24 +3,27 @@
 
 @{
     ViewData["Title"] = "Event Index";
-
-    var newEvents = ViewBag.categories;
-    var dropDownMenuText = ViewBag.dropDownMenuText;
+    var dropDownText = ViewBag.category ?? "Select category";
 }
 
 <body style="background-color: #2E2E2E">
-    <!-- Drop down menu -->
-    <div class="dropdown mb-5 mt-4">
-        <button class="btn btn-warning dropdown-toggle" type="button" id="myButtonMenu" data-bs-toggle="dropdown" aria-expanded="false">
-            @dropDownMenuText
-        </button>
-        <ul id="categoryDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            @foreach (var item in newEvents)
-            {
-                <li><a class="dropdown-item" asp-controller="Event" asp-route-category=@item>@item</a></li>
-            }
-        </ul>
-    </div>
+
+    <form action="">
+        <input class="form-control" type="text" placeholder="Search.." name="search" value="@ViewBag.search">
+
+        @Html.DropDownList("Category", Html.GetEnumSelectList(typeof(EventCategory)), "Select Category", new { @class = "form-control mb-4" })
+
+        <input class="form-control" type="text" placeholder="Country" name="country" value="@ViewBag.country">
+
+        <input class="form-control" type="text" placeholder="City" name="city" value="@ViewBag.city">
+
+        <button class="btn btn-primary" type="submit">Search</button>
+
+    </form>
+
+    <br/>
+
+
 
     @*<div class="container text-light">
             <table class="table table-responsive table-warning table-striped">

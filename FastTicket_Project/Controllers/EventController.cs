@@ -59,27 +59,19 @@ namespace FastTicket_Project.Controllers
         // GET: /events
         [HttpGet]
         [Route("/events")]
-        public IActionResult GetAll(EventCategory? category, int? year, int? month, int? day, string? country, string? city)
+        public IActionResult GetAll(String? search, EventCategory? category, string? country, string? city)
         {
             var eventList = _context.Events
                 .Where(e => category != null ? e.Category == category : true)
-                .Where(e => year != null ? e.Time.Year == year : true)
-                .Where(e => month != null ? e.Time.Month == month : true)
-                .Where(e => day != null ? e.Time.Day == day : true)
                 .Where(e => country != null ? e.Country == country : true)
                 .Where(e => city != null ? e.City == city : true)
+                .Where(e => search != null ? e.Name.ToLower().Contains(search.ToLower()) : true)
                 .ToList();
 
-            var eventCat = _context.Events.Select(e => e.Category).Distinct().ToList();
-            ViewBag.categories = eventCat;
-
-            if (category == null)
-            {
-                ViewBag.dropDownMenuText = "Select Your Category";
-            } else
-            {
-                ViewBag.dropDownMenuText = category;
-            }
+            ViewBag.search = search;
+            ViewBag.category = category;
+            ViewBag.country = country;
+            ViewBag.city = city;
 
             return View("Index", eventList);
         }
