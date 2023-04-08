@@ -4,12 +4,11 @@
     var newEvents = ViewBag.New;
     var popularEvents = ViewBag.Popular;
     var featuredEvents = ViewBag.Featured;
-    string[] arrayCat = new string[] { "New Events", "Featured Events", "Popular Events" };
 }
 
 <div class="container margin">
     <!-- New Events-->
-    <a asp-controller="Event" asp-action="GetAll"><h5 class="customizedtext-yellow">@arrayCat[0]</h5></a>
+    <a asp-controller="Event" asp-action="GetAll" asp-route-sort="New"><h5 class="customizedtext-yellow">New Events</h5></a>
     <div class="row">
         @if (newEvents.Count == 0)
         {
@@ -29,15 +28,15 @@
         }
     </div>
     <!-- Popular Events-->
-    <a asp-controller="Event" asp-action="GetAll"><h5 class="customizedtext-yellow">@arrayCat[1]</h5></a>
+    <a asp-controller="Event" asp-action="GetAll" asp-route-sort="Popular"><h5 class="customizedtext-yellow">Popular Events</h5></a>
     <div class="row">
-        @if (featuredEvents.Count == 0)
+        @if (popularEvents.Count == 0)
         {
             <p class="card-text text-white mt-2 mb-2">No Events Available</p>
         }
         else
         {
-            foreach (var item in featuredEvents)
+            foreach (var item in popularEvents)
             {
                 <div class="col-sm-6  col-md-3">
                     <div class="card-body text-center">
@@ -49,15 +48,15 @@
         }
     </div>
     <!-- Featured Events-->
-    <a asp-controller="Event" asp-action="GetAll"><h5 class="customizedtext-yellow">@arrayCat[2]</h5></a>
+    <a asp-controller="Event" asp-action="GetAll" asp-route-sort="Featured"><h5 class="customizedtext-yellow">Featured Events</h5></a>
     <div class="row">
-        @if (popularEvents.Count == 0)
+        @if (featuredEvents.Count == 0)
         {
             <p class="card-text text-white mt-2 mb-2">No Events Available</p>
         }
         else
         {
-            foreach (var item in popularEvents)
+            foreach (var item in featuredEvents)
             {
                 <div class="col-sm-6  col-md-3">
                     <div class="card-body text-center">

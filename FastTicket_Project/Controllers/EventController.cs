@@ -59,27 +59,34 @@ namespace FastTicket_Project.Controllers
         // GET: /events
         [HttpGet]
         [Route("/events")]
-        public IActionResult GetAll(EventCategory? category, int? year, int? month, int? day, string? country, string? city)
+        public IActionResult GetAll(EventSortingOptions? sort, String? search, EventCategory? category, string? country, string? city)
         {
-            var eventList = _context.Events
+            var events = _context.Events
                 .Where(e => category != null ? e.Category == category : true)
-                .Where(e => year != null ? e.Time.Year == year : true)
-                .Where(e => month != null ? e.Time.Month == month : true)
-                .Where(e => day != null ? e.Time.Day == day : true)
                 .Where(e => country != null ? e.Country == country : true)
                 .Where(e => city != null ? e.City == city : true)
-                .ToList();
+                .Where(e => search != null ? e.Name.ToLower().Contains(search.ToLower()) : true);
 
-            var eventCat = _context.Events.Select(e => e.Category).Distinct().ToList();
-            ViewBag.categories = eventCat;
-
-            if (category == null)
+            if (sort == EventSortingOptions.New)
             {
-                ViewBag.dropDownMenuText = "Select Your Category";
-            } else
-            {
-                ViewBag.dropDownMenuText = category;
+                events = events.OrderBy(e => e.CreatedAt);
             }
+            else if (sort == EventSortingOptions.Popular)
+            {
+                events = events.OrderByDescending(e => e.Clicks);
+            }
+            else if (sort == EventSortingOptions.Featured)
+            {
+                // here goes the logic to return featured events
+            }
+
+            var eventList = events.ToList();
+
+            ViewBag.sort = sort;
+            ViewBag.search = search;
+            ViewBag.category = category;
+            ViewBag.country = country;
+            ViewBag.city = city;
 
             return View("Index", eventList);
         }
