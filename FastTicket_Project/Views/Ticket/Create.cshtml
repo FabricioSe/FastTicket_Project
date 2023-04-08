@@ -6,19 +6,31 @@
     ViewData["Title"] = "Create Ticket";
 }
 
-<div class="container text-light">
-    <h1>Current event name: @ViewBag.EventName</h1>
-    <form method="post">
-        @Html.ValidationSummary()
-        <br />
-        @Html.LabelFor(t => t.Price)
-        @Html.EditorFor(t => t.Price, new { @class = "form-control" })
-        @Html.ValidationMessageFor(t => t.Price)
-        <br />
-        @Html.LabelFor(t => t.OnSale)
-        @Html.EditorFor(t => t.OnSale, new { @class = "form-control" })
-        @Html.ValidationMessageFor(t => t.OnSale)
-        <br />
-        <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
-</div>
+<body style="background-color: #2E2E2E">
+    <div class="card container-fluid" style="width: 700px; border-radius: 20px;">
+        <div class="card-body">
+            <div class="container text-dark">
+                <h1 class="text-center mt-3">@ViewData["Title"]</h1>
+                <hr />
+                <h3 class="text-center mt-3">Current event name: @ViewBag.EventName</h3>
+                <hr />
+                <form method="post">
+                    @Html.ValidationSummary()
+                    <br />
+                    @Html.LabelFor(t => t.Price)
+                    @Html.EditorFor(t => t.Price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(t => t.Price)
+                    <br />
+                    @Html.LabelFor(t => t.OnSale)
+                    @Html.EditorFor(t => t.OnSale, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(t => t.OnSale)
+                    <br />
+                    <br />
+                    <div class="form-group d-flex justify-content-end">
+                        <button class="w-25 btn btn-dark text-warning" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

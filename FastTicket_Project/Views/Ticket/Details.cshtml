@@ -4,27 +4,37 @@
 @{
     ViewData["Title"] = "Ticket Details";
 }
-
-<div class="container text-light">
-    @Html.LabelFor(t => t.ID)
-    @Html.ValueFor(t => t.ID)
-    <br />
-    @Html.LabelFor(t => t.UserID)
-    @Html.ValueFor(t => t.UserID)
-    <br />
-    @Html.LabelFor(t => t.Price)
-    @Html.ValueFor(t => t.Price)
-    <br />
-    @Html.LabelFor(t => t.EventID)
-    @Html.ValueFor(t => t.EventID)
-    <br />
-    @Html.LabelFor(t => t.OnSale)
-    @Html.ValueFor(t => t.OnSale)
-    <br />
-    @Html.LabelFor(t => t.CreatedAt)
-    @Html.ValueFor(t => t.CreatedAt)
-    <br />
-    @Html.LabelFor(t => t.ModifiedAt)
-    @Html.ValueFor(t => t.ModifiedAt)
-    <br />
-</div>
+<body style="background-color: #2E2E2E">
+    <div class="card container-fluid" style="width: 700px; border-radius: 20px;">
+        <div class="card-body">
+            <div class="container text-dark">
+                <h1 class="text-center mt-3">@ViewData["Title"]</h1>
+                <hr />
+                <div class="form-group m-3">
+                    @Html.LabelFor(t => t.ID, new { style = "margin-right: 130px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(t => t.ID)
+                    <br />
+                    @Html.LabelFor(t => t.UserID, new { style = "margin-right: 75px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(t => t.UserID)
+                    <br />
+                    @Html.LabelFor(t => t.Price, new { style = "margin-right: 95px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(t => t.Price)
+                    <br />
+                    @Html.LabelFor(t => t.EventID, new { style = "margin-right: 67px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(t => t.EventID)
+                    <br />
+                    @Html.LabelFor(t => t.OnSale, new { style = "margin-right: 75px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(t => t.OnSale)
+                    <br />
+                    @Html.LabelFor(t => t.CreatedAt, new { style = "margin-right: 40px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(t => t.CreatedAt)
+                    <br />
+                    @Html.LabelFor(t => t.ModifiedAt, new { style = "margin-right: 32px; color: #ffc107; font-size: 25px;" })
+                    @Html.ValueFor(t => t.ModifiedAt)
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

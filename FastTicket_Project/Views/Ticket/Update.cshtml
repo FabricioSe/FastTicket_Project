@@ -3,29 +3,41 @@
 @model Ticket
 
 @{
-    ViewData["Title"] = "Create Ticket";
+    ViewData["Title"] = "Update Ticket Info";
 }
 
-<div class="container text-light">
-    <form method="post">
-        @Html.ValidationSummary()
-        <br />
-        @Html.LabelFor(t => t.Price)
-        @Html.EditorFor(t => t.Price, new { @class = "form-control" })
-        @Html.ValidationMessageFor(t => t.Price)
-        <br />
-        @Html.LabelFor(t => t.EventID)
-        @Html.EditorFor(t => t.EventID, new { @class = "form-control" })
-        @Html.ValidationMessageFor(t => t.EventID)
-        <br />
-        @Html.LabelFor(t => t.UserID)
-        @Html.EditorFor(t => t.UserID, new { @class = "form-control" })
-        @Html.ValidationMessageFor(t => t.UserID)
-        <br />
-        @Html.LabelFor(t => t.OnSale)
-        @Html.EditorFor(t => t.OnSale, new { @class = "form-control" })
-        @Html.ValidationMessageFor(t => t.OnSale)
-        <br />
-        <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
-</div>
+<body style="background-color: #2E2E2E">
+    <div class="card container-fluid" style="width: 700px; border-radius: 20px;">
+        <div class="card-body">
+            <div class="container text-dark">
+                <h1 class="text-center mt-3">@ViewData["Title"]</h1>
+                <hr />
+                <form method="post">
+                    @Html.ValidationSummary()
+                    <br />
+                    @Html.LabelFor(t => t.Price)
+                    @Html.EditorFor(t => t.Price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(t => t.Price)
+                    <br />
+                    @Html.LabelFor(t => t.EventID)
+                    <br />
+                    @Html.EditorFor(t => t.EventID, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(t => t.EventID)
+                    <br />
+                    @Html.LabelFor(t => t.UserID, new { style = "margin-Top: 20px;" })
+                    @Html.EditorFor(t => t.UserID, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(t => t.UserID)
+                    <br />
+                    @Html.LabelFor(t => t.OnSale)
+                    @Html.EditorFor(t => t.OnSale, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(t => t.OnSale)
+                    <br />
+                    <br />
+                    <div class="form-group d-flex justify-content-end">
+                        <button class="w-25 btn btn-dark text-warning" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
