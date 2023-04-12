@@ -1,4 +1,8 @@
 ﻿@using FastTicket_Project.Models.Entities
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 @model IEnumerable<Event>
 
 @{
@@ -7,6 +11,11 @@
 }
 
 <body style="background-color: #2E2E2E">
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a class="btn btn-secondary mb-4" asp-controller="Event" asp-action="Create">Create New</a>
+    }
 
     <form action="">
         <input class="form-control" type="text" placeholder="Search.." name="search" value="@ViewBag.search">
@@ -23,7 +32,7 @@
 
     </form>
 
-    <br/>
+    <br />
 
 
 

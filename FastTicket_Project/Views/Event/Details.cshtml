@@ -1,4 +1,7 @@
 ﻿@using FastTicket_Project.Models.Entities
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @model Event
 
 @{
@@ -56,6 +59,10 @@
                 <br />
                 <h4 class="text-center bg-warning">Number of tickets for this event: @tickets.Count</h4>
                 <br />
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a class="btn btn-secondary mb-4" asp-controller="Ticket" asp-action="Create" asp-route-eventId="@Model.ID">Create Ticket</a>
+                }
             </div>
         </div>
     </div>
