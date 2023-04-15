@@ -149,4 +149,41 @@ value-background {
     object-fit: cover;
 }
 
+.search-container {
+    border-radius: 10px; 
+    overflow: hidden; /* this is necessary to make sure the rounded corners are applied to the container */
+    margin-right: 20px;
+    margin-left: 10px;
+    width: 200px;
+}
+
+.search-container input[type="text"] {
+    border: none; /* remove the default border */
+    padding: 10px; /* add some padding to make the text input look nicer */
+    width: 100%; /* make the text input fill the container */
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: white;
+    transition: color 0.2s ease;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffc107 !important;
+}
+
+.customizedtext-yellow {
+    transition: color 0.2s ease; /* add a smooth transition for the color change */
+}
+
+.customizedtext-yellow:hover {
+    color: white !important; /* set the color of the link text when the mouse is on the link */
+}
+
+
+
+
+
+
+
+
 

@@ -31,22 +31,26 @@
                 <!-- Search bar-->
                 <div class="search-container">
                     <form method="get" asp-controller="Event" asp-action="GetAll">
-                        <input type="text" placeholder="Search.." name="search">
+                        <input id="search" type="text" placeholder="Search.." name="search">
                     </form>
                 </div>
+
                 <!-- ========== -->
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link h5 mt-3 text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Event" asp-action="GetAll">Events</a>
+                            <a class="nav-link h5 mt-3 text-white" asp-area="" asp-controller="Event" asp-action="GetAll">Events</a>
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
+                    <span class="h5 mt-3">
+                        <partial name="_LoginPartial" />
+                    </span>
                 </div>
+
             </div>
         </nav>
     </header>
@@ -55,7 +59,10 @@
             @RenderBody()
         </main>
     </div>
-
+    <br />
+    <br />
+    <br />
+    <br />
     <footer class="footer text-muted">
         <div class="container">
             &copy; 2023 - FastTicket_Project - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

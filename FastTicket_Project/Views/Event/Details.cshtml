@@ -61,7 +61,9 @@
                 <br />
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <a class="btn btn-secondary mb-4" asp-controller="Ticket" asp-action="Create" asp-route-eventId="@Model.ID">Create Ticket</a>
+                    <div class="form-group d-flex justify-content-end">
+                        <a class="w-25 btn btn-dark text-warning mb-3" asp-controller="Ticket" asp-action="Create" asp-route-eventId="@Model.ID">Create Ticket</a>
+                    </div>
                 }
             </div>
         </div>

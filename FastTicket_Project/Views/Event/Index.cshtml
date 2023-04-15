@@ -11,27 +11,35 @@
 }
 
 <body style="background-color: #2E2E2E">
+    <div class="card container-fluid" style="width: 1000px; border-radius: 20px;">
+        <div class="card-body">
 
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <a class="btn btn-secondary mb-4" asp-controller="Event" asp-action="Create">Create New</a>
-    }
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a class="btn btn-dark text-warning mb-4" asp-controller="Event" asp-action="Create">Create New</a>
+            }
 
-    <form action="">
-        <input class="form-control" type="text" placeholder="Search.." name="search" value="@ViewBag.search">
+            <form action="">
+                <input class="form-control" type="text" placeholder="Search.." name="search" value="@ViewBag.search">
 
-        @Html.DropDownList("Category", Html.GetEnumSelectList(typeof(EventCategory)), "Select Category", new { @class = "form-control mb-4" })
+                @Html.DropDownList("Category", Html.GetEnumSelectList(typeof(EventCategory)), "Select Category", new { @class = "form-control mb-4" })
 
-        <input class="form-control" type="text" placeholder="Country" name="country" value="@ViewBag.country">
+                <input class="form-control" type="text" placeholder="Country" name="country" value="@ViewBag.country">
 
-        <input class="form-control" type="text" placeholder="City" name="city" value="@ViewBag.city">
+                <input class="form-control" type="text" placeholder="City" name="city" value="@ViewBag.city">
 
-        @Html.DropDownList("Sort", Html.GetEnumSelectList(typeof(EventSortingOptions)), "Select Sorting Option", new { @class = "form-control mb-4" })
+                @Html.DropDownList("Sort", Html.GetEnumSelectList(typeof(EventSortingOptions)), "Select Sorting Option", new { @class = "form-control mb-4" })
 
-        <button class="btn btn-primary" type="submit">Search</button>
+                <div class="form-group d-flex justify-content-end">
+                    <button type="submit" class="btn btn-dark text-warning mt-3">Search</button>
+                </div>
 
-    </form>
+            </form>
+        </div>
+    </div>
 
+    <br />
+    <br />
     <br />
 
 
