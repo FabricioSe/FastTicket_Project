@@ -9,9 +9,12 @@ using FastTicket_Project.Models.DataTransferModels.Event;
 using FastTicket_Project.Models.DataTransferModels.Ticket;
 using FastTicket_Project.Models.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Stripe;
+using Stripe.Checkout;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,6 +30,109 @@ namespace FastTicket_Project.Controllers
         {
             _context = context;
             _userManager = userManager;
+        }
+
+        // GET: /tickets/checkout/success
+        [HttpGet]
+        //[Authorize]
+        [Route("checkout/success")]
+        public async Task<IActionResult> CheckoutSuccess(string session_id)
+        {
+            var sessionService = new SessionService();
+            var session = sessionService.Get(session_id);
+
+            if (session.Status == "complete")
+            {
+                var buyerId = session.Metadata["BuyerId"];
+                var ticketId = session.Metadata["TicketId"];
+
+                // get the ticket
+                var ticket = await _context.Tickets.FindAsync(Convert.ToInt32(ticketId));
+
+                // change owner and toggle on sale
+                ticket!.UserID = buyerId;
+                ticket!.OnSale = false;
+
+                await _context.SaveChangesAsync();
+            }
+
+            return View("CheckoutSuccess");
+        }
+
+        // GET: /tickets/my
+        [Authorize]
+        [HttpGet]
+        [Route("my")]
+        public async Task<IActionResult> GetMyTickets()
+        {
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
+            var tickets = _context.Tickets.Where(t => t.UserID == currentUser!.Id);
+
+            return View("Index", tickets);
+        }
+
+        // GET: /tickets/{id}/checkout
+        [Authorize]
+        [HttpGet]
+        [Route("{id}/checkout")]
+        public async Task<IActionResult> Checkout(int id)
+        {
+            // check if ticket exists and is available for purchase
+            var ticket = await _context.Tickets.FindAsync(id);
+
+            if (ticket == null || ticket.OnSale == false)
+                return BadRequest("Ticket does not exist or is not on sale");
+
+            // TODO: set on sale to false to lock the ticket
+
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
+            // create product
+            var productOptions = new ProductCreateOptions
+            {
+                Name = ticket.ID.ToString(),
+            };
+            var productService = new ProductService();
+            var product = productService.Create(productOptions);
+
+
+            // create price
+            var priceOptions = new PriceCreateOptions
+            {
+                UnitAmount = ((long)ticket.Price) * 100,
+                Currency = "cad",
+                Product = product.Id
+            };
+            var priceService = new PriceService();
+            var price = priceService.Create(priceOptions);
+
+            var baseUri = $"{Request.Scheme}://{Request.Host}";
+
+            var sessionOptions = new SessionCreateOptions
+            {
+                SuccessUrl = baseUri + "/tickets/checkout/success?session_id={CHECKOUT_SESSION_ID}",
+
+                LineItems = new List<SessionLineItemOptions>
+                {
+                    new SessionLineItemOptions
+                    {
+                        Price = price.Id,
+                        Quantity = 1,
+                    },
+                },
+                Mode = "payment",
+                Metadata = new Dictionary<string, string>()
+                {
+                    { "BuyerId", currentUser!.Id },
+                    { "TicketId", ticket.ID.ToString() }
+                }
+            };
+
+            var sessionService = new SessionService();
+            var session = sessionService.Create(sessionOptions);
+
+            return Redirect(session.Url);
         }
 
         // GET: /tickets/{id}

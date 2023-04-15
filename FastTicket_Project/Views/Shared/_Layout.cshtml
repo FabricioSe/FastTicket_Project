@@ -45,6 +45,12 @@
                         <li class="nav-item">
                             <a class="nav-link h5 mt-3 text-white" asp-area="" asp-controller="Event" asp-action="GetAll">Events</a>
                         </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link h5 mt-3 text-white" asp-area="" asp-controller="Ticket" asp-action="GetMyTickets">My Tickets</a>
+                            </li>
+                        }
                     </ul>
                     <span class="h5 mt-3">
                         <partial name="_LoginPartial" />
