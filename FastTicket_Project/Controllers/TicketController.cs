@@ -153,14 +153,14 @@ namespace FastTicket_Project.Controllers
         }
 
         // GET: /tickets
-        [HttpGet]
-        [Route("/tickets")]
-        public IActionResult GetAll()
-        {
-            var ticketList = _context.Tickets.ToList();
+        //[HttpGet]
+        //[Route("/tickets")]
+        //public IActionResult GetAll()
+        //{
+        //    var ticketList = _context.Tickets.ToList();
 
-            return View("Index", ticketList);
-        }
+        //    return View("Index", ticketList);
+        //}
 
         // GET: /tickets/create
         [HttpGet]

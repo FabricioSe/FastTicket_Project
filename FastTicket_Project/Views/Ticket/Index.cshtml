@@ -1,5 +1,12 @@
 ﻿@using FastTicket_Project.Models.Entities
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @model IEnumerable<Ticket>
+
+@{
+    var currentUser = await UserManager.GetUserAsync(User);
+}
 
 @{
     ViewData["Title"] = "Ticket Index";
@@ -16,6 +23,7 @@
                 <th scope="col">On Sale</th>
                 <th scope="col">Created At</th>
                 <th scope="col">Modified At</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +37,12 @@
                     <td>@e.OnSale</td>
                     <td>@e.CreatedAt</td>
                     <td>@e.ModifiedAt</td>
+                    <td>
+                        @if (currentUser!.Id == e.UserID)
+                            {
+                            <a class="btn btn-primary" asp-controller="Ticket" asp-action="Update" asp-route-id="@e.ID">Edit</a>
+                            }
+                    </td>
                 </tr>
             }
         </tbody>
