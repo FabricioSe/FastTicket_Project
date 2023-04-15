@@ -88,6 +88,9 @@ namespace FastTicket_Project.Controllers
 
             var currentUser = await _userManager.GetUserAsync(HttpContext.User);
 
+            if (ticket.UserID == currentUser.Id)
+                return BadRequest("Cannot buy own ticket");
+
             // create product
             var productOptions = new ProductCreateOptions
             {
