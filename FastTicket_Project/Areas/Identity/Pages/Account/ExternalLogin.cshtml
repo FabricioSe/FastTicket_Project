@@ -4,9 +4,9 @@
     ViewData["Title"] = "Register";
 }
 <body style="background-color: #2E2E2E">
-    <div class="card container-fluid" style="width: 700px; border-radius: 20px;">
+    <div class="card container-fluid box" style="width: 700px; border-radius: 20px;">
         <div class="card-body">
-            <h1>@ViewData["Title"]</h1>
+            <h1 class="text-center">@ViewData["Title"]</h1>
             <h2 id="external-login-title">Associate your @Model.ProviderDisplayName account.</h2>
             <hr />
 
@@ -27,7 +27,7 @@
                         </div>
                         <br />
                         <div class="form-group d-flex justify-content-end">
-                            <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                            <button type="submit" class="w-25 btn btn-lg btn-dark text-warning">Register</button>
                         </div>
                     </form>
                 </div>
