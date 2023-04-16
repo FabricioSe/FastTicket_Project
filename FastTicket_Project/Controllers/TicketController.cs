@@ -32,19 +32,42 @@ namespace FastTicket_Project.Controllers
             _userManager = userManager;
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("payout")]
+        public async Task<IActionResult> Payout()
+        {
+            return Redirect("/");
+        }
+
         // GET: /tickets/checkout/success
         [HttpGet]
-        //[Authorize]
         [Route("checkout/success")]
         public async Task<IActionResult> CheckoutSuccess(string session_id)
         {
+            if (session_id == null)
+                return Redirect("/");
+
             var sessionService = new SessionService();
             var session = sessionService.Get(session_id);
 
             if (session.Status == "complete")
             {
                 var buyerId = session.Metadata["BuyerId"];
+                var sellerId = session.Metadata["SellerId"];
                 var ticketId = session.Metadata["TicketId"];
+                var price = session.Metadata["Price"];
+
+                // create transaction
+                _context.Transactions.Add(new Transaction()
+                {
+                    CreatedAt = DateTime.Now,
+                    TicketID = Convert.ToInt32(ticketId),
+                    SellerID = sellerId,
+                    BuyerID = buyerId,
+                    Price = Decimal.Parse(price),
+                    SellerReceivedBalance = false
+                });
 
                 // get the ticket
                 var ticket = await _context.Tickets.FindAsync(Convert.ToInt32(ticketId));
@@ -88,7 +111,7 @@ namespace FastTicket_Project.Controllers
 
             var currentUser = await _userManager.GetUserAsync(HttpContext.User);
 
-            if (ticket.UserID == currentUser.Id)
+            if (ticket.UserID == currentUser!.Id)
                 return BadRequest("Cannot buy own ticket");
 
             // create product
@@ -128,7 +151,9 @@ namespace FastTicket_Project.Controllers
                 Metadata = new Dictionary<string, string>()
                 {
                     { "BuyerId", currentUser!.Id },
-                    { "TicketId", ticket.ID.ToString() }
+                    { "TicketId", ticket.ID.ToString() },
+                    { "SellerId", ticket.UserID },
+                    { "Price", ticket.Price.ToString() }
                 }
             };
 
@@ -275,7 +300,7 @@ namespace FastTicket_Project.Controllers
             {
                 _context.SaveChanges();
 
-                return Redirect("/events/" + id);
+                return Redirect("/events/" + evento.ID);
             }
             catch (Exception e)
             {

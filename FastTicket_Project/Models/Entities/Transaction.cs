@@ -19,8 +19,7 @@ namespace FastTicket_Project.Models.Entities
 
 		public string? SellerID { get; set; } // user who sold the ticket
 
-		[Required]
-		public string PaymentMethod { get; set; }
+		public bool SellerReceivedBalance { get; set; }
 
 		[Required]
 		public decimal Price { get; set; }
