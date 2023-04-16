@@ -33,7 +33,7 @@ body {
     background-color: #2E2E2E;
 }
 
-.card {
+.card.box {
     margin-top: 50px;
 }
 
@@ -168,10 +168,10 @@ value-background {
     color: #ffc107 !important;
 }
 
-.customizedtext-yellow {
+.customizedtext-yellow.feedpage {
     transition: color 0.2s ease; /* add a smooth transition for the color change */
 }
 
-.customizedtext-yellow:hover {
+.customizedtext-yellow.feedpage:hover {
     color: white !important; /* set the color of the link text when the mouse is on the link */
 }

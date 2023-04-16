@@ -12,11 +12,11 @@
     ViewData["Title"] = "Ticket Index";
 }
 
-<div class="container text-dark">
+<div class="text-dark">
     <br/>
     <table class="table table-warning table-striped">
         <thead>
-            <tr>
+            <tr style="text-align: center;">
                 <th scope="col">Id</th>
                 <th scope="col">User Id</th>
                 <th scope="col">Event Id</th>
@@ -27,18 +27,18 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="text-align: center;">
             @foreach (Ticket e in Model)
             {
                 <tr>
-                    <th scope="row">@e.ID</th>
-                    <td>@e.UserID</td>
-                    <td>@e.EventID</td>
-                    <td>@e.Price</td>
-                    <td>@e.OnSale</td>
-                    <td>@e.CreatedAt</td>
-                    <td>@e.ModifiedAt</td>
-                    <td>
+                    <th style="vertical-align: middle;" scope="row">@e.ID</th>
+                    <td style="vertical-align: middle;">@e.UserID</td>
+                    <td style="vertical-align: middle;">@e.EventID</td>
+                    <td style="vertical-align: middle;">@e.Price</td>
+                    <td style="vertical-align: middle;">@e.OnSale</td>
+                    <td style="vertical-align: middle;">@e.CreatedAt</td>
+                    <td style="vertical-align: middle;">@e.ModifiedAt</td>
+                    <td style="vertical-align: middle;">
                         @if (currentUser!.Id == e.UserID)
                             {
                             <a class="btn btn-primary" asp-controller="Ticket" asp-action="Update" asp-route-id="@e.ID">Edit</a>
