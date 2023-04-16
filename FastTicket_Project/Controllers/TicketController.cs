@@ -34,10 +34,14 @@ namespace FastTicket_Project.Controllers
 
         [HttpGet]
         [Authorize]
-        [Route("payout")]
-        public async Task<IActionResult> Payout()
+        [Route("history")]
+        public async Task<IActionResult> History()
         {
-            return Redirect("/");
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            ViewBag.SellTransactions = _context.Transactions.Where(t => t.SellerID == currentUser!.Id).ToList();
+            ViewBag.BuyTransactions = _context.Transactions.Where(t => t.BuyerID == currentUser!.Id).ToList();
+
+            return View("Transactions");
         }
 
         // GET: /tickets/checkout/success

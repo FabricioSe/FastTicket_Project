@@ -1,0 +1,10 @@
+﻿@using FastTicket_Project.Models.DataTransferModels.Ticket
+@using FastTicket_Project.Models.Entities
+@model CreateTicketData
+
+@{
+    ViewData["Title"] = "History";
+
+    var sellTransactions = ViewBag.SellTransactions; // a list of selling transactions 
+    var buyTransactions = ViewBag.BuyTransactions; // a list of buying transactions
+}
