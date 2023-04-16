@@ -66,17 +66,19 @@
                         <th scope="col">Price</th>
                         <th scope="col">User Email</th>
                         <th scope="col">Created At</th>
-                        <th scope="col">Street Number</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody style="text-align: center;">
                     @{var counter = 1; }
                     @foreach (Ticket item in tickets)
-                    {
+                        {
+                            var currentUser = await UserManager.GetUserAsync(User);
+
                         <tr style="color: #ffc107;">
                             <th style="vertical-align: middle;" scope="row">@counter</th>
                             <td style="vertical-align: middle; font-weight: bold;">@item.Price</td>
-                            <td style="vertical-align: middle;">@item.UserID</td>
+                            <td style="vertical-align: middle;">@currentUser!.Email</td>
                             <td style="vertical-align: middle;">@item.CreatedAt</td>
                             <td style="text-align: center; color: #343a40;">
                                 <a class="btn btn-success" asp-controller="Ticket" asp-action="Checkout" asp-route-id="@item.ID"><i class="bi bi-cart-plus" style="font-size: 24px;"></i></a>

@@ -279,28 +279,15 @@ namespace FastTicket_Project.Controllers
             if (ticket == null)
                 return BadRequest("Cannot find ticket with id: " + id);
 
-            // check if event id and user id are valid
-            var evento = _context.Events.Find(data.EventId);
-
-            if (evento == null)
-                return BadRequest("Invalid event id: " + data.EventId);
-
-            var user = _context.Users.Find(data.UserId);
-
-            if (user == null)
-                return BadRequest("Invalid user id: " + data.UserId);
-
             ticket.Price = data.Price;
             ticket.OnSale = data.OnSale;
-            ticket.EventID = data.EventId;
-            ticket.UserID = data.UserId;
             ticket.ModifiedAt = DateTime.Now;
 
             try
             {
                 _context.SaveChanges();
 
-                return Redirect("/events/" + evento.ID);
+                return Redirect("/events/" + ticket.EventID);
             }
             catch (Exception e)
             {
