@@ -42,7 +42,18 @@
 
                 <hr />
                 <br />
+<<<<<<< HEAD
                 @*<h4 class="text-center bg-warning">Number of tickets for this event: @tickets.Count</h4>*@
+=======
+                <h4 class="text-center bg-warning">Number of tickets for this event: @tickets.Count</h4>
+
+                @foreach (Ticket ticket in tickets)
+                {
+                    <a class="btn btn-primary" asp-controller="Ticket" asp-action="Checkout" asp-route-id="@ticket.ID">Buy ticket id: @ticket.ID"</a>
+                    <br>
+                }
+
+>>>>>>> 898a0812c8998c44f836eb93cbc659b3ba911d3d
                 <br />
                 @if (SignInManager.IsSignedIn(User))
                 {
