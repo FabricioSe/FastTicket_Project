@@ -9,63 +9,84 @@
 
     // here are the tickets for displayed event
     var tickets = ViewBag.Tickets;
+    DateTime date = DateTime.Parse(@Html.ValueFor(ev => ev.Time));
+    string month = date.ToString("MMM");
+    int year = date.Year;
+    int dayOfMonth = date.Day;
+    string dayOfWeek = date.DayOfWeek.ToString();
+    string hourFormatted = date.ToString("h:mmtt");
 }
 
 <body style="background-color: #2E2E2E">
-    <div class="card container-fluid" style="width: 700px; border-radius: 20px;">
-        <div class="card-body">
-            <div class="container text-dark">
-                <h1 class="text-center mt-3">@ViewData["Title"]</h1>
-                <hr />
-                <div class="form-group m-3">
-                    @Html.LabelFor(ev => ev.Name, new { style = "margin-right: 120px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.Name)
-                    <br />
-                    @Html.LabelFor(ev => ev.Description, new { style = "margin-right: 52px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.Description)
-                    <br />
-                    @Html.LabelFor(ev => ev.StreetNumber, new { style = "margin-right: 22px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.StreetNumber)
-                    <br />
-                    @Html.LabelFor(ev => ev.StreetName, new { style = "margin-right: 49px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.StreetName)
-                    <br />
-                    @Html.LabelFor(ev => ev.PostalCode, new { style = "margin-right: 53px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.PostalCode)
-                    <br />
-                    @Html.LabelFor(ev => ev.City, new { style = "margin-right: 142px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.City)
-                    <br />
-                    @Html.LabelFor(ev => ev.Country, new { style = "margin-right: 95px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.Country)
-                    <br />
-                    @Html.LabelFor(ev => ev.Time, new { style = "margin-right: 132px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.Time)
-                    <br />
-                    @Html.LabelFor(ev => ev.Category, new { style = "margin-right: 82px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.Category)
-                    <br />
-                    @Html.LabelFor(ev => ev.ImageUrl, new { style = "color: #ffc107; font-size: 25px;" })
-                    <br />
-                    @Html.ValueFor(ev => ev.ImageUrl)
-                    <br />
-                    @Html.LabelFor(ev => ev.CreatedAt, new { style = "margin-right: 75px; margin-top: 10px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.CreatedAt)
-                    <br />
-                    @Html.LabelFor(ev => ev.ModifiedAt, new { style = "margin-right: 65px; color: #ffc107; font-size: 25px;" })
-                    @Html.ValueFor(ev => ev.ModifiedAt)
+    <div class="card container-fluid" style="background-color: transparent; border-radius: 20px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <div class="img-container-event">
+                    <img class="img-fluid customizedtext-yellow" src=@Html.ValueFor(ev => ev.ImageUrl) alt="Event Image Cap" />
                 </div>
+            </div>
+
+            <div class="col-md-8" style="padding-left: 30px;">
+                <h1 class="text-center mt-3" style="color: #ffc107;">@ViewData["Title"]</h1>
+                <hr style="color: #ffc107;" />
+
+                <h3 class="card-title mt-2 mb-0 customizedtext-yellow">@Html.ValueFor(ev => ev.Name)</h3>
+                <p class="customizedtext-white">@Html.ValueFor(ev => ev.Description)</p>
+                <h4 class="card-title mt-2 mb-0 customizedtext-yellow">@month @dayOfMonth - @year</h4>
+                <p class="customizedtext-white">@dayOfWeek - @hourFormatted </p>
+                <h4 class="card-title mt-2 mb-0 customizedtext-yellow">@Html.ValueFor(ev => ev.Country)</h4>
+                <p class="customizedtext-white" style="margin: 0;">@Html.ValueFor(ev => ev.City)</p>
+                <p class="customizedtext-white">@Html.ValueFor(ev => ev.StreetName), @Html.ValueFor(ev => ev.StreetNumber), @Html.ValueFor(ev => ev.PostalCode)</p>
+                <h5 class="customizedtext-yellow" style="display: inline;">Category: </h5>
+                <p class="customizedtext-white" style="display: inline;">@Html.ValueFor(ev => ev.Category)</p>
+
                 <hr />
                 <br />
-                <h4 class="text-center bg-warning">Number of tickets for this event: @tickets.Count</h4>
+                @*<h4 class="text-center bg-warning">Number of tickets for this event: @tickets.Count</h4>*@
                 <br />
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <div class="form-group d-flex justify-content-end">
-                        <a class="w-25 btn btn-dark text-warning mb-3" asp-controller="Ticket" asp-action="Create" asp-route-eventId="@Model.ID">Create Ticket</a>
-                    </div>
+
+                    <a class="btn btn-dark text-warning mb-4" asp-controller="Ticket" asp-action="Create" asp-route-eventId="@Model.ID">Create Ticket</a>
+
                 }
             </div>
         </div>
     </div>
+    @*<hr style="color: #ffc107;" />*@
+    <hr />
+
+    <div class="text-light" style="background-color: transparent;">
+            <table class="table table-striped">
+                <thead style="color: white; text-align: center;">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">User Email</th>
+                        <th scope="col">Created At</th>
+                        <th scope="col">Street Number</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                    @{var counter = 1; }
+                    @foreach (Ticket item in tickets)
+                    {
+                        <tr style="color: #ffc107;">
+                            <th style="vertical-align: middle;" scope="row">@counter</th>
+                            <td style="vertical-align: middle; font-weight: bold;">@item.Price</td>
+                            <td style="vertical-align: middle;">@item.UserID</td>
+                            <td style="vertical-align: middle;">@item.CreatedAt</td>
+                            <td style="text-align: center; color: #343a40;"><a class="btn btn-success"><i class="bi bi-cart-plus" style="font-size: 24px;"></i></a></td>
+                        </tr>
+                            counter++;
+                        }
+                </tbody>
+            </table>
+
+        </div>
+        <br />
 </body>
+
+
+
+
