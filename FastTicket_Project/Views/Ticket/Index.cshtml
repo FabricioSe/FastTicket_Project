@@ -12,11 +12,11 @@
     ViewData["Title"] = "Ticket Index";
 }
 
-<div class="text-dark">
+<div class="text-light" style="background-color: transparent;">
     <br/>
-    <table class="table table-warning table-striped">
-        <thead>
-            <tr style="text-align: center;">
+    <table class="table table-striped">
+        <thead style="color: white; text-align: center;">
+            <tr>
                 <th scope="col">Id</th>
                 <th scope="col">User Id</th>
                 <th scope="col">Event Id</th>
@@ -30,7 +30,7 @@
         <tbody style="text-align: center;">
             @foreach (Ticket e in Model)
             {
-                <tr>
+                <tr style="color: #ffc107;">
                     <th style="vertical-align: middle;" scope="row">@e.ID</th>
                     <td style="vertical-align: middle;">@e.UserID</td>
                     <td style="vertical-align: middle;">@e.EventID</td>
