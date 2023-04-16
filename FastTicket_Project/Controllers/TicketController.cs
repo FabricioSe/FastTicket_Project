@@ -282,6 +282,12 @@ namespace FastTicket_Project.Controllers
                 return BadRequest(e.ToString());
             }
         }
+
+        [Route("test")]
+        public IActionResult testCheckout()
+        {
+            return View("CheckoutSuccess");
+        }
     }
 }
 
