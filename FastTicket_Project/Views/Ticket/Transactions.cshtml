@@ -17,14 +17,14 @@
                     @foreach (Transaction item in buyTransactions)
                     {
                         <div class="card text-white bg-info">
-                            <div class="card-header text-center">Bought from <span style="font-weight: bold;">@item.Seller</span></div>
+                            <div class="card-header text-center">Bought from <span style="font-weight: bold;">@item.SellerID</span></div>
                             <div class="card-body">
-                                <h5 class="card-title text-center">@item.TicketID</h5>
-                                <h6>@item.Ticket</h6>
-                                <h6>$@item.Price</h6>
+                                <h5 class="card-title text-center">TicketID: @item.TicketID</h5>
+                                <h6>EventID: @item.Ticket</h6>
+                                <h6>Price: $@item.Price</h6>
                                 <h6>Seller received balance: @item.SellerReceivedBalance</h6>
                             </div>
-                            <div class="card-footer text-center">On @item.CreatedAt</div>
+                            <div class="card-footer text-center">Completed On @item.CreatedAt</div>
                         </div>
                         <div style="margin-top: 20px;"></div>
                     }
@@ -36,14 +36,14 @@
                     @foreach (Transaction item in sellTransactions)
                     {
                         <div class="card customizedtext-yellow bg-secondary">
-                            <div class="card-header text-center">Sold to <span style="font-weight: bold;">@item.Buyer</span></div>
+                            <div class="card-header text-center">Sold to <span style="font-weight: bold;">@item.BuyerID</span></div>
                             <div class="card-body">
-                                <h5 class="card-title text-center">@item.TicketID</h5>
-                                <h6>@item.Ticket</h6>
-                                <h6>$@item.Price</h6>
+                                <h5 class="card-title text-center">TicketID: @item.TicketID</h5>
+                                <h6>EventID: @item.Ticket</h6>
+                                <h6>Price: $@item.Price</h6>
                                 <h6>Seller received balance: @item.SellerReceivedBalance</h6>
                             </div>
-                            <div class="card-footer text-center">On @item.CreatedAt</div>
+                            <div class="card-footer text-center">Completed On @item.CreatedAt</div>
                         </div>
                         <div style="margin-top: 20px;"></div>
                     }
