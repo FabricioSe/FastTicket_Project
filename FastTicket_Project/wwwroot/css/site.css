@@ -33,6 +33,10 @@ body {
     background-color: #2E2E2E;
 }
 
+.card {
+    margin-top: 50px;
+}
+
 .card-custom {
     min-width: 18rem;
     display: inline-block;
