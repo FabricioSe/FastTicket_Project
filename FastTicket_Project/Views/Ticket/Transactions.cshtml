@@ -9,18 +9,6 @@
     var buyTransactions = ViewBag.BuyTransactions; // a list of buying transactions
 }
 
-
-        public int? TicketID { get; set; }
-
-		public bool SellerReceivedBalance { get; set; }
-
-		[Required]
-
-		public virtual IdentityUser Buyer { get; set; }
-		public virtual IdentityUser Seller { get; set; }
-		public virtual Ticket Ticket { get; set; }
-
-
 <body style="background-color: #2E2E2E">
     <div class="container-fluid">
         <div class="row">
